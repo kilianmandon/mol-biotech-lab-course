@@ -1,4 +1,4 @@
-protocol/build
+protocol/build/*
 protocol/svg-inkscape
 !protocol/build/*.pdf
 .DS_Store
