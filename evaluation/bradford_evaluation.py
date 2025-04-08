@@ -74,8 +74,8 @@ for i, block in enumerate(nonpelb_blocks, 1):
 
 # Step 5: Calculate mean and standard deviation for each block
 def calculate_block_stats(blocks):
-    means = [np.mean(block) for block in blocks]
-    std_devs = [np.std(block) for block in blocks]
+    means = [np.mean(block[:-1]) for block in blocks]
+    std_devs = [np.std(block[:-1]) for block in blocks]
     return means, std_devs
 
 pelb_means, pelb_std_devs = calculate_block_stats(pelb_blocks)
@@ -95,7 +95,7 @@ plt.figure(figsize=(8, 6))
 plt.scatter(concentrations_bsa, absorbances_bsa, color="blue", label="Calibration Data")
 plt.plot(concentrations_bsa, slope * concentrations_bsa + intercept, color="red", label="Linear Fit")
 plt.xlabel("Concentration (µg/mL)")
-plt.ylabel("Absorbance (blanked)")
+plt.ylabel("Blanked Absorbance (-)")
 plt.legend()
 plt.tight_layout()
 plt.show()

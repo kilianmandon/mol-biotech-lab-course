@@ -43,7 +43,7 @@
         \textbf{\LARGE Module: Practical Biotechnology}\\
         \textbf{\large Practical part: Prof. Schillberg, BioVII}\\[2cm]
         
-        \textbf{\LARGE Experiment: Heterologous Expression of mCherry in E. coli}\\[2cm]
+        \textbf{\LARGE Experiment: Heterologous Expression of mCherry in \emph{E. coli}}\\[2cm]
         
         \textbf{\large Semester: Winter Semester 2024/25}\\[2cm]
         
@@ -65,11 +65,11 @@
 The goal of the experiment was to assess the expression and purification of the protein mCherry in \emph{E. coli}. Concretely, the experiment aimed to elucidate whether the protein can be purified using affinity chromatography, detected by gel electrophoresis and Western Blot, quantified by the Enzyme-linked Immunosorbent Assay (ELISA) and measured at the transcriptome level using RNA extraction and Reverse Transcription Polymerase Chain Reaction (RT-PCR). These methods were applied to two constructs, mCherry-His and pelB-mCherry-His, to investigate differences in the expression and the expressed protein. The leader peptide pelB is supposed to guide the translated protein to the periplasm \cite{Sockolosky2013}. 
 
 \section{Methods}
-All experiments were carried out as described in the course notes. The primary data, the Python code for the quantitative analysis of the results, as well as the source code used to generate this document are available on GitHub\footnote{https://github.com/kilianmandon/mol-biotech-lab-course} up to four weeks after submission.
+All experiments were carried out as described in the course notes \cite{Schillberg2025}. The primary data, the Python code for the quantitative analysis of the results, as well as the source code used to generate this document are available on GitHub\footnote{https://github.com/kilianmandon/mol-biotech-lab-course} up to four weeks after submission.
 
 \section{Results}
 \subsection{Expression and Isolation of mCherry}
-Expression of mCherry in \emph{E. coli} was carried out both with and without a pelB leader peptide to test for differences in the expression behaviour. For the strain containing pelB-mCherry-His, the main culture reached an optical density (OD) of 0.622 2h47min after inoculation and expression was induced by addition of IPTG. For the strain containing mCherry-His, expression was induced 3h41min after inoculation at an OD of 0.584. For the strain with mCherry-His, the solution appeared violet both before and after induction, while the strain with mCherry-His was slightly yellow at both times.
+Expression of mCherry in \emph{E. coli} was carried out both with and without a pelB leader peptide to test for differences in the expression behaviour. For the strain containing pelB-mCherry-His, the main culture reached an optical density (OD) of 0.622 2h47min after inoculation and expression was induced by addition of IPTG. For the strain containing mCherry-His, expression was induced 3h41min after inoculation at an OD of 0.584. For the strain with mCherry-His, the solution appeared violet both before and after induction, while the strain with pelB-mCherry-His was slightly yellow at both times.
 
 The His-tagged proteins were thereafter purified using Immobilized Metal Affinity Chromatography (IMAC). After application of the lysed culture, the purification column used for the mCherry-His strain was violet, while the one used for pelB-mCherry-His remained colorless. Washing and flow-through fractions were colorless for both strains. The first elution fraction of the mCherry-His setup was colored violet, while all other elution fractions were colorless. 
 
@@ -91,7 +91,10 @@ The total protein concentration in the three elution fractions from affinity chr
 \end{table}
 
 The absorbance data for the calibration points followed a linear relation with a high coefficient of determination of $R^2 = 0.999$ (Figure \ref{fig:bradford1}). The linear model was determined as 
-$$A = \SI{1.19}{\milli\liter\per\milli\gram} \cdot c + 0.0015$$
+
+\begin{equation}
+A = \SI{1.19}{\milli\liter\per\milli\gram} \cdot c + 0.0015
+\end{equation}
 
 \begin{figure}[h!]
     \centering
@@ -119,16 +122,16 @@ Protein concentrations in the elution fractions were estimated using the linear 
     \label{tab:bradford2}
 \end{table}
 
-For each of these three elutions, the measurements had high variance within the different dilutions in the Bradford Assay, driven mostly by the lowest dilution of 1:20. Protein concentration in the first elution of the pelB construct was determined as $\SI{241.61\pm 41.63}{\micro\gram\per\milli\liter}$, in the first elution of the non-pelB construct as $\SI{235.80\pm 45.11}{\micro\gram\per\liter}$ and in the second elution of the non-pelB construct as $\SI{23.70 \pm 18.83}{\micro\gram\per\liter}$ (Table \ref{tab:bradford3}).
+For each of these three elutions, the measurements had high variance within the different dilutions in the Bradford Assay, driven mostly by the lowest dilution of 1:20. Leaving out this lowest dilution, protein concentration in the first elution of the pelB construct was determined as $\SI{270.74\pm 7.27}{\micro\gram\per\milli\liter}$, in the first elution of the non-pelB construct as $\SI{262.66\pm 29.81}{\micro\gram\per\milli\liter}$ and in the second elution of the non-pelB construct as $\SI{36.73 \pm 4.73}{\micro\gram\per\milli\liter}$ (Table \ref{tab:bradford3}).
 
 \begin{table}[h!]
     \centering
-    \caption{\textbf{Bradford Assay: Average and Standard Deviation of Adjusted Concentrations for PelB and NonPelB Samples.} This table summarizes the average and standard deviation of the adjusted concentrations (after multiplication with concentration factors) for PelB and NonPelB mCherry-His, grouped by the three elution fractions.}
+    \caption{\textbf{Bradford Assay: Average and Standard Deviation of Adjusted Concentrations for PelB and NonPelB Samples.} This table summarizes the average and standard deviation of the adjusted concentrations (after multiplication with concentration factors) for PelB and NonPelB mCherry-His, grouped by the three elution fractions, leaving out the measurements for the 1:20 dilution.}
     \begin{tabular}{lccc}
         & \textbf{1st Elution} & \textbf{2nd Elution} & \textbf{3rd Elution}\\
         \hline
-        \textbf{PelB (µg/mL)} & 241.61 $\pm$ 41.63 & -54.69 $\pm$ 49.82 & -17.42 $\pm$ 9.41 \\
-        \textbf{NonPelB (µg/mL)} & 235.80 $\pm$ 45.11 & 23.70 $\pm$ 18.83 & -7.24 $\pm$ 9.83  \\
+        \textbf{PelB (µg/mL)} & 270.74 $\pm$ 7.27 & -21.19 $\pm$ 18.86 & -11.92 $\pm$ 6.49 \\
+        \textbf{NonPelB (µg/mL)} & 262.66 $\pm$ 29.81 & 36.73 $\pm$ 4.73 & -10.73 $\pm$ 10.42  \\
         \hline
     \end{tabular}
     \label{tab:bradford3}
@@ -183,11 +186,14 @@ For a quantitative analysis of the specific concentration of mCherry-His in the 
 
 \newpage
 As for the Bradford Assay, a linear model for the relationship between absorbance and concentration was created based on samples with known concentrations of mCherry-His. The calibration data generally followed a linear trend with a coefficient of determination of $R^2 = 0.94$ (Figure \ref{fig:elisa1}). The linear model was determined as 
-$$A = \SI{3.76}{\milli\liter\per\micro\gram} \cdot c + 0.057$$
+
+\begin{equation}
+A = \SI{3.76}{\milli\liter\per\micro\gram} \cdot c + 0.057
+\end{equation}
 
 \begin{figure}[h!]
     \centering
-    \includesvg[width=0.8\textwidth]{images/elisa_regression_plot.svg}  % Make sure to replace with your actual plot image file
+    \includesvg[width=\textwidth]{images/elisa_regression_plot.svg}  % Make sure to replace with your actual plot image file
     \caption{\textbf{ELISA Assay: Calibration Curve with Linear Regression. }  Calibration was conducted using mCherry-His protein solutions with known concentrations. Measured absorbances were plotted against the concentrations after subtracting the blank value. The coefficient of determination was $R^2=0.94$. Absorbances for the highest two concentration exceeded the device's measurement range and are not included in the chart.}
     \label{fig:elisa1}
 \end{figure}
@@ -254,7 +260,7 @@ The samples from Total RNA Extraction underwent DNase treatment and reverse tran
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{images/rna_post_pcr.png}
+    \includegraphics[width=0.7\textwidth]{images/rna_post_pcr.png}
     \caption{\textbf{Agarose Gel Electrophoresis Following RT-PCR.} The samples used as templates for PCR are from different stages of Total RNA Extraction from an \emph{E. coli} strain containing pET22b-mCherry-His. Track M contains the marker \emph{GeneRuler 1kb DNA Ladder} by Thermo Fisher Scientific. Templates used for the PCR in the tracks S1 to S5 are, in this order, H\textsubscript{2}O, cDNA (after RT), total RNA after DNase treatment, total RNA before DNase treatment, and pET22b-mCherry-His plasmid DNA (positive control). The tracks S2, S4 and S5 show a band at 740~bp. Track S3 shows a faint band at the same migration distance.}
     \label{fig:rna2}
 \end{figure}
@@ -273,20 +279,22 @@ The washing fraction showed little amount of protein, meaning that aside of the 
 
 The two experiments strongly differed in the Western Blot. For the pelB-mCherry-His construct, only two faint bands were present in the first elution fraction and at weights corresponding to that of the positive control. While this shows that pelB-mCherry-His was in fact expressed, it also suggests that this was only the case in relatively low amounts. The high protein concentration in the elution fraction as measured in Bradford likely arose from proteins that had relatively strong unspecific interactions with the IMAC column, whilst not interacting with the anti-His-antibodies used in the Western Blot. 
 
-For the experiment using mCherry-His, the Western Blot showed strong bands for proteins corresponding to the two bands from the positive control throughout all steps of the purification, with less pronounced bands for the flow-through and washing fractions. This shows that mCherry-His was successfully expressed and purified. The lower presence in the flow-through and washing fractions is likely due to the strong interaction of mCherry-His with the IMAC column, holding it back in the column. The presence of the two separate bands in the test samples as well as the positive control might come from proteolytic cleavage of mCherry-His, creating a lighter version of the protein that still contains the His-Tag and can thus be bound by the anti-His-antibody. For mCherry-His, the first track also showed two bands at higher molecular weight, which suggests the expression of proteins with a higher molecular weight than mCherry-His that were also bound by the anti-His-antibodies. However, the bands weren't present in any other sample and it is unclear why such proteins should be lost in the following steps. Thus, the existence of such proteins shouldn't be taken as fact until further experiments show supporting results.
+For the experiment using mCherry-His, the Western Blot showed strong bands for proteins corresponding to the two bands from the positive control throughout all steps of the purification, with less pronounced bands for the flow-through and washing fractions. This shows that mCherry-His was successfully expressed and purified. The lower presence in the flow-through and washing fractions is likely due to the strong interaction of mCherry-His with the IMAC column, holding it back in the column. Still, both fractions showed a band corresponding to mCherry-His. For the flow-through fraction, this might have arisen from an insufficient binding capacity of the column, leaving excess mCherry-His to flow through. For the washing fraction, the small amount of mCherry-His detected likely resulted from ligand exchange in the histidine-metal interaction, where imidazole from the washing buffer displaced mCherry-His, despite its considerably lower concentration compared to the elution buffer. The presence of the two separate bands in the test samples as well as the positive control might come from proteolytic cleavage of mCherry-His, creating a lighter version of the protein that still contains the His-Tag and can thus be bound by the anti-His-antibody. For mCherry-His, the first track also showed two bands at higher molecular weight, which suggests the expression of proteins with a higher molecular weight than mCherry-His that were also bound by the anti-His-antibodies. However, the bands weren't present in any other sample and it is unclear why such proteins should be lost in the following steps. Thus, the existence of such proteins shouldn't be taken as fact until further experiments show supporting results.
 
-The weight of the most pronounced bands from the positive control mCherry-His were at 34~kDa and 30~kDa for the two experiments. The expected molecular weight of mCherry-His without a pelB leader is 28~kDa, which is below the observed values. The corresponding weight of the most pronounced bands in the elution fractions from the two experiments was 34~kDa for both the pelB and the non-pelB construct. The deviation of weight of the positive control in the two experiments exceeded the difference between the theoretical molecular mass of the pelB construct (30.2~kDa) and the non-pelB construct (28.0~kDa). The fact that all measured values exceeded both theoretical weights could be due to sagging of the gel, as observed by the horizontal curvature, and could be mitigated by more careful treatment of the gels. A significant difference of the weights for the pelB and the non-pelB construct could not be observed. This could indicate proper processing of the pelB construct, which is supposed to undergo cleavage of the leader peptide after successful translocation to the periplasm \cite{Sockolosky2013}. However, given the large deviation of the observed molecular weights from their theoretical ones, this is no sure result and needs further evidence. A repetition of the experiment with more careful handling and additional intermediate marker tracks could help, but the difference in weight of 2~kDa might still be too narrow for resolution using gel electrophoresis.
+The weight of the most pronounced bands from the positive control mCherry-His were at 34~kDa and 30~kDa for the two experiments. The expected molecular weight of mCherry-His without a pelB leader is 28~kDa, which is below the observed values. The corresponding weight of the most pronounced bands in the elution fractions from the two experiments was 34~kDa for both the pelB and the non-pelB construct. The deviation of weight of the positive control in the two experiments exceeded the difference between the theoretical molecular mass of the pelB construct (30.2~kDa) and the non-pelB construct (28.0~kDa). The fact that all measured values exceeded both theoretical weights could be due to sagging of the gel, as observed by the horizontal curvature, and could be mitigated by more careful treatment of the gels. A significant difference of the weights for the pelB and the non-pelB construct could not be observed. This could indicate proper processing of the pelB construct, which is supposed to undergo cleavage of the leader peptide after successful translocation to the periplasm \cite{Sockolosky2013}. However, given the large deviation of the observed molecular weights from their theoretical ones and the non-exact nature of the visual determination method that was used, this is no sure result and needs further evidence. A repetition of the experiment with more careful handling and additional intermediate marker tracks could help, but the difference in weight of 2~kDa might still be too narrow for resolution using gel electrophoresis.
 
 
 \subsection{ELISA Assay}
 For further analysis of the protein composition in the elution fractions from affinity chromatography, an ELISA assay using primary anti-His-antibodies was conducted for both the pelB and the non-pelB construct. The measurement for the non-pelB construct exceeded the measurent range of the photometer, showing a high presence of mCherry-His in the elution. The calculated concentration of pelB-mCherry-His in the first elution fraction was about the same as for the third elution fraction from the non-pelB construct, even though this third elution fraction contained no significant amount of protein according to the Bradford Assay. This supports the claim that the strain containing pelB-mCherry-His expressed very little of the protein, and that the high amount of protein in the first elution fraction of the pelB construct was made up by proteins with non-specific interactions with the IMAC column. 
+
+The calibration that was conducted for the assay yielded a low coefficient of determination of $R^2=0.94$. This was due to the fact that the two measurements for the largest concentrations were inconsistent with each other in forming a line through the origin. The blanked absorbances of the two measurements were $2.5$ and $3.6$. When exceeding a value of $2$, over $99~\%$ of the transmitted light is extinct by the solute, and the measurement is generally not consistent with a linear trend. This is a likely reason for the observed inconsistency of the linear model.
 
 Given the problems with the measurement range, the ELISA Assay failed to provide quantitative results for the non-pelB construct and could only further establish the qualitative result from the Western Blot that the samples contained significant amounts of antigen for the anti-His-antibodies. For a quantitative analysis, the assay should be repeated using increased dilution or a shorter incubation with the substrate PNPP.
 
 \subsection{RNA Extraction}
 For analysis of the transcriptome, Total RNA Extraction and RT-PCR were conducted. Both samples, as well as the positive control, showed strong bands at 2900~bp and 1500~bp, as well as a fainter band corresponding to a length less than 200~bp. These values coincide with the reported lengths of the 23S rRNA (2904~bp) and the 16S rRNA (1542~bp), while the low-molecular band might come from the 5S rRNA (120~bp) from \emph{E. coli} \cite{Kaczanowska2007}. rRNAs are the most abundant RNAs in the cell, often making up 80\% to 90\% of the cell's total RNA \cite{Munafo2016}. Thus, it is highly likely that the observed bands in fact arose from those rRNAs. The slight smearing below the bands at 2900~bp and 1500~bp in the positive control might indicate partial degradation of the RNA. The observed absorbance ratio of $\text{A260}/\text{A280}=2.06$ is close to the value of 2.0, which is typically associated with high quality RNA without protein contamination \cite{poovakka2018quality}. 
 
-In the following RT-PCR, the samples containing cDNA, total RNA without DNase treatment and the positive control showed strong bands at 740~bp. This matches the expected size of the construct of 734~bp \cite{Schillberg2025}, showing that the primers could specifically bind and amplify both the cDNA and genomic DNA encoding the protein. It also shows that the mRNA for mCherry-His was in fact present in the total RNA, corresponding to the proof of expression on the proteome-level using ELISA and Western Blot. The track containing total RNA after DNase treatment shows a very faint band. This suggests that while the DNase could effectively degrade most of the genomic DNA, there were still DNA molecules present that could be amplified by the PCR. Given the exponential nature of PCR amplification, this small amount is expected to largely increase with a higher number of PCR cycles, which could be investigated when repeating the experiment.
+In the following RT-PCR, the samples containing cDNA, total RNA without DNase treatment and the positive control showed strong bands at 740~bp. This matches the expected size of the construct of 734~bp \cite{Schillberg2025}, showing that the primers could specifically bind and amplify both the cDNA and genomic DNA encoding the protein. It also shows that the mRNA for mCherry-His was in fact present in the total RNA, corresponding to the proof of expression on the proteome-level using ELISA and Western Blot. The track containing total RNA after DNase treatment shows a very faint band. Given that the sample did not undergo reverse transcription, thus contained no cDNA, and since the polymerase used in the PCR can only use DNA as template, all PCR-amplified products must be due to residual genomic DNA. This suggests that while the DNase could effectively degrade most of the genomic DNA, there were still some genomic DNA molecules present that could be amplified by the PCR. Given the exponential nature of PCR amplification, this small amount is expected to largely increase with a higher number of PCR cycles, which could be investigated when repeating the experiment.
 
 \section{Conclusion}
 The experiments could successfully assess the expression of mCherry-His in \emph{E. coli}. The SDS-PAGE and Western Blot could effectively demonstrate the purity of mCherry-His after IMAC. Although the ELISA was unable to quantify the expression due to an improper measuring range, it further established the presence of mCherry-His in the purified sample with high concentration. In addition to the proteomic analysis, Total RNA Extraction and RT-PCR were able to prove transcription of the construct. 
